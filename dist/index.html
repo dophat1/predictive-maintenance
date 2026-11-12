@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Data science portfolio — predictive maintenance, condition monitoring, and machine learning for industrial reliability." />
+  <title>Your Name — Predictive Maintenance Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="nav-wrap">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Home"><span class="brand-mark">Y</span><span>Your Name</span></a>
+      <div class="nav-links">
+        <a href="#case-study">Case study</a><a href="#method">Method</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="#contact">Let’s talk <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="status-dot"></span> Open to data science opportunities</div>
+        <h1>I turn machine signals into <em>maintenance decisions.</em></h1>
+        <p class="hero-lede">Data scientist focused on predictive maintenance, time-series modelling, and explainable ML for industrial operations.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#case-study">Explore the project <span>↓</span></a>
+          <a class="button ghost" href="#contact">Download résumé <span>↗</span></a>
+        </div>
+        <div class="hero-proof">
+          <div><strong>End-to-end</strong><span>Data → deployment</span></div>
+          <div><strong>Explainable</strong><span>SHAP-driven insights</span></div>
+          <div><strong>Business-first</strong><span>Cost-aware thresholds</span></div>
+        </div>
+      </div>
+
+      <div class="machine-card reveal" aria-label="Live machine health demonstration">
+        <div class="card-head"><div><span class="micro">ASSET MONITOR</span><h2>CNC-07 / Spindle</h2></div><span class="live"><i></i> LIVE DEMO</span></div>
+        <div class="health-ring" style="--value: 82"><div><strong id="healthScore">82</strong><span>Health score</span></div></div>
+        <div class="sensor-grid">
+          <div><span>Vibration</span><strong id="vibration">3.8</strong><small>mm/s</small></div>
+          <div><span>Temperature</span><strong id="temperature">67</strong><small>°C</small></div>
+          <div><span>RUL</span><strong id="rul">18</strong><small>days</small></div>
+        </div>
+        <div class="spark-wrap"><div class="spark-label"><span>7-day risk trend</span><span class="risk-label">Elevated <b>+12%</b></span></div><svg viewBox="0 0 480 110" role="img" aria-label="Increasing equipment risk trend"><defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcff4f" stop-opacity=".28"/><stop offset="1" stop-color="#dcff4f" stop-opacity="0"/></linearGradient></defs><path class="area" d="M0 89 C55 83 72 92 120 70 S192 79 240 55 S310 65 350 38 S420 50 480 14 L480 110 L0 110Z"/><path class="line" d="M0 89 C55 83 72 92 120 70 S192 79 240 55 S310 65 350 38 S420 50 480 14"/><circle cx="480" cy="14" r="5"/></svg></div>
+        <div class="alert"><span>!</span><div><strong>Inspect within 72 hours</strong><p>Bearing wear pattern detected</p></div><button id="simulateBtn">Simulate</button></div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Technical toolkit"><div>PYTHON <i>✦</i> SCIKIT-LEARN <i>✦</i> XGBOOST <i>✦</i> SQL <i>✦</i> SHAP <i>✦</i> MLOPS <i>✦</i> TIME SERIES <i>✦</i> PYTHON <i>✦</i> SCIKIT-LEARN <i>✦</i> XGBOOST <i>✦</i> SQL <i>✦</i> SHAP</div></section>
+
+    <section class="case-section shell" id="case-study">
+      <div class="section-heading reveal"><div><span class="section-no">01 / FLAGSHIP PROJECT</span><h2>Predict failures before they stop production.</h2></div><p>A demonstration case study showing how I frame, build, and operationalize a predictive-maintenance system—from raw sensor readings to a maintenance queue.</p></div>
+      <div class="case-grid">
+        <article class="case-main reveal">
+          <div class="case-tag">DEMONSTRATION CASE STUDY</div>
+          <h3>Failure-risk classification for industrial equipment</h3>
+          <p>Built a reproducible ML pipeline that identifies at-risk assets, explains the driving signals, and converts predictions into prioritized maintenance actions.</p>
+          <div class="metric-row">
+            <div><strong>0.92</strong><span>ROC–AUC</span></div><div><strong>84%</strong><span>Recall</span></div><div><strong>2.1×</strong><span>Lift @ top 10%</span></div>
+          </div>
+          <div class="mini-chart">
+            <div class="chart-top"><span>Model discrimination</span><div><i class="legend model"></i> XGBoost <i class="legend base"></i> Baseline</div></div>
+            <svg viewBox="0 0 640 230" role="img" aria-label="Illustrative ROC curve with model above baseline">
+              <g class="grid-lines"><path d="M50 20V190H620"/><path d="M50 147H620M50 104H620M50 61H620"/></g>
+              <path class="baseline" d="M50 190L620 20"/><path class="roc" d="M50 190 C70 92 124 54 205 38 S420 20 620 20"/>
+              <text x="50" y="216">0.0</text><text x="600" y="216">1.0</text><text x="4" y="25">1.0</text><text x="20" y="195">0.0</text>
+            </svg>
+          </div>
+        </article>
+        <aside class="case-side reveal">
+          <div class="side-block"><span>PROBLEM</span><p>Failures are rare, costly, and easy to miss with fixed maintenance schedules.</p></div>
+          <div class="side-block"><span>APPROACH</span><p>Temporal features, imbalance-aware training, calibrated probabilities, and business-cost thresholding.</p></div>
+          <div class="side-block"><span>OUTPUT</span><p>An explainable risk score and ranked inspection list designed for maintenance planners.</p></div>
+          <a href="#method">See the full workflow <span>↘</span></a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="method-section" id="method">
+      <div class="shell">
+        <div class="section-heading light reveal"><div><span class="section-no">02 / HOW I WORK</span><h2>From noisy sensor data to a trusted decision.</h2></div><p>Every stage is built to survive real operating conditions—not just score well in a notebook.</p></div>
+        <div class="steps">
+          <article class="step reveal"><span>01</span><div class="step-icon">⌁</div><h3>Frame</h3><p>Define the failure horizon, unit of prediction, intervention cost, and success metric with operations.</p><small>Business objective · Label design</small></article>
+          <article class="step reveal"><span>02</span><div class="step-icon">⌇</div><h3>Engineer</h3><p>Clean telemetry and build rolling statistics, lag features, operating regimes, and degradation trends.</p><small>Time windows · Leakage control</small></article>
+          <article class="step reveal"><span>03</span><div class="step-icon">⎇</div><h3>Model</h3><p>Validate chronologically, handle imbalance, tune probabilities, and compare against a simple baseline.</p><small>XGBoost · Calibration · PR–AUC</small></article>
+          <article class="step reveal"><span>04</span><div class="step-icon">◎</div><h3>Operationalize</h3><p>Serve scores, monitor drift, explain alerts, and connect output to the maintenance planning workflow.</p><small>SHAP · API · Monitoring</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section shell" id="skills">
+      <div class="section-heading reveal"><div><span class="section-no">03 / CAPABILITIES</span><h2>Built for the space between data and operations.</h2></div></div>
+      <div class="skills-grid">
+        <article class="skill-feature reveal"><span class="skill-num">01</span><h3>Machine learning</h3><p>Classification, anomaly detection, survival analysis, time-series forecasting, feature engineering, validation, and explainability.</p><div class="pills"><span>scikit-learn</span><span>XGBoost</span><span>SHAP</span><span>Optuna</span></div></article>
+        <article class="skill-feature reveal"><span class="skill-num">02</span><h3>Data & analytics</h3><p>Reliable pipelines and clear analysis across sensor, maintenance, and operations data.</p><div class="pills"><span>Python</span><span>SQL</span><span>Pandas</span><span>Power BI</span></div></article>
+        <article class="skill-feature reveal"><span class="skill-num">03</span><h3>Production ML</h3><p>Reproducible experiments, model APIs, monitoring, automated tests, and pragmatic deployment.</p><div class="pills"><span>MLflow</span><span>FastAPI</span><span>Docker</span><span>Git</span></div></article>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="shell contact-grid">
+        <div class="reveal"><span class="section-no">04 / CONTACT</span><h2>Let’s make maintenance more predictable.</h2><p>I’m interested in data science and machine learning roles where rigorous modelling meets real operational impact.</p></div>
+        <div class="contact-card reveal">
+          <div><span>EMAIL</span><a href="mailto:your.email@example.com">your.email@example.com</a></div>
+          <div><span>LINKEDIN</span><a href="#" aria-label="Replace with your LinkedIn profile">linkedin.com/in/your-name ↗</a></div>
+          <div><span>GITHUB</span><a href="#" aria-label="Replace with your GitHub profile">github.com/your-username ↗</a></div>
+          <a class="button primary wide" href="mailto:your.email@example.com">Start a conversation <span>↗</span></a>
+          <small>Replace these placeholder links with your details.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell"><span>© 2026 Your Name</span><span>Data science for reliable systems.</span><a href="#top">Back to top ↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
