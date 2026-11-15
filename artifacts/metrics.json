@@ -1,0 +1,58 @@
+{
+  "dataset_rows": 1516948,
+  "window_rows": 25594,
+  "failure_events": 4,
+  "prediction_horizon_hours": 24,
+  "development_end": "2020-07-08",
+  "holdout_event": 4,
+  "best_model": "Random forest",
+  "threshold_selection": {
+    "method": "maximum pooled event-validation F2",
+    "selected_threshold": 0.02,
+    "validation_f2": 0.40330920372285417
+  },
+  "holdout": {
+    "roc_auc": 0.4385707841582174,
+    "pr_auc": 0.012467383648885848,
+    "precision": 0.01670976725681321,
+    "recall": 0.8155339805825242,
+    "f1": 0.03274853801169591,
+    "f2": 0.07722007722007722,
+    "balanced_accuracy": 0.5325012751379066,
+    "brier_score": 0.021186694344768758,
+    "threshold": 0.02,
+    "true_negative": 1643,
+    "false_positive": 4943,
+    "false_negative": 19,
+    "true_positive": 84
+  },
+  "event_detection": {
+    "detected": true,
+    "first_alert": "2020-07-08T15:40:00",
+    "lead_hours": 166.83333333333334
+  },
+  "features": [
+    "TP2__mean",
+    "TP3__mean",
+    "H1__mean",
+    "DV_pressure__mean",
+    "Reservoirs__mean",
+    "Oil_temperature__mean",
+    "Motor_current__mean",
+    "TP2__std",
+    "TP3__std",
+    "H1__std",
+    "DV_pressure__std",
+    "Reservoirs__std",
+    "Oil_temperature__std",
+    "Motor_current__std",
+    "TP2__mean__delta_1h",
+    "TP3__mean__delta_1h",
+    "H1__mean__delta_1h",
+    "DV_pressure__mean__delta_1h",
+    "Reservoirs__mean__delta_1h",
+    "Oil_temperature__mean__delta_1h",
+    "Motor_current__mean__delta_1h"
+  ],
+  "evaluation_note": "Events 2-3 used for forward event validation; July event 4 is the untouched chronological holdout."
+}

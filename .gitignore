@@ -1,0 +1,76 @@
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.local
+.streamlit/secrets.toml
+
+# Test, coverage, and profiling output
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.cache/
+*.prof
+
+# Build and packaging output
+build/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+portfolio-site.tar.gz
+
+# Downloaded source data (keep the placeholder)
+data/raw/*
+!data/raw/.gitkeep
+
+# Large generated model binaries (keep small evaluation results)
+artifacts/*.joblib
+artifacts/*.pkl
+artifacts/*.pickle
+artifacts/*.onnx
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Stray caches inside the static site
+dist/__pycache__/

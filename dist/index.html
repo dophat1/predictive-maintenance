@@ -58,11 +58,11 @@
       <div class="section-heading reveal"><div><span class="section-no">01 / FLAGSHIP PROJECT</span><h2>Predict failures before they stop production.</h2></div><p>A demonstration case study showing how I frame, build, and operationalize a predictive-maintenance system—from raw sensor readings to a maintenance queue.</p></div>
       <div class="case-grid">
         <article class="case-main reveal">
-          <div class="case-tag">DEMONSTRATION CASE STUDY</div>
-          <h3>Failure-risk classification for industrial equipment</h3>
-          <p>Built a reproducible ML pipeline that identifies at-risk assets, explains the driving signals, and converts predictions into prioritized maintenance actions.</p>
+          <div class="case-tag">REAL DATA · METROPT-3</div>
+          <h3>24-hour failure risk for a metro compressor</h3>
+          <p>Evaluated on operational compressor telemetry and four documented failure incidents. Forward validation shows weak generalization; the final holdout reveals the alert burden alongside detections.</p>
           <div class="metric-row">
-            <div><strong>0.92</strong><span>ROC–AUC</span></div><div><strong>84%</strong><span>Recall</span></div><div><strong>2.1×</strong><span>Lift @ top 10%</span></div>
+            <div><strong>0.012</strong><span>Holdout PR–AUC</span></div><div><strong>81.6%</strong><span>Recall · 24h windows</span></div><div><strong>1.7%</strong><span>Precision · high alert burden</span></div>
           </div>
           <div class="mini-chart">
             <div class="chart-top"><span>Model discrimination</span><div><i class="legend model"></i> XGBoost <i class="legend base"></i> Baseline</div></div>
@@ -74,9 +74,9 @@
           </div>
         </article>
         <aside class="case-side reveal">
-          <div class="side-block"><span>PROBLEM</span><p>Failures are rare, costly, and easy to miss with fixed maintenance schedules.</p></div>
-          <div class="side-block"><span>APPROACH</span><p>Temporal features, imbalance-aware training, calibrated probabilities, and business-cost thresholding.</p></div>
-          <div class="side-block"><span>OUTPUT</span><p>An explainable risk score and ranked inspection list designed for maintenance planners.</p></div>
+          <div class="side-block"><span>DATA</span><p>1,516,948 operational readings aggregated into 25,594 ten-minute windows.</p></div>
+          <div class="side-block"><span>VALIDATION</span><p>Forward validation on earlier incidents; final July incident held out chronologically.</p></div>
+          <div class="side-block"><span>RESULT</span><p>84 true-positive windows and 4,943 false-positive windows at the recall-focused threshold. The baseline needs substantial improvement.</p></div>
           <a href="#method">See the full workflow <span>↘</span></a>
         </aside>
       </div>
@@ -88,7 +88,7 @@
         <div class="steps">
           <article class="step reveal"><span>01</span><div class="step-icon">⌁</div><h3>Frame</h3><p>Define the failure horizon, unit of prediction, intervention cost, and success metric with operations.</p><small>Business objective · Label design</small></article>
           <article class="step reveal"><span>02</span><div class="step-icon">⌇</div><h3>Engineer</h3><p>Clean telemetry and build rolling statistics, lag features, operating regimes, and degradation trends.</p><small>Time windows · Leakage control</small></article>
-          <article class="step reveal"><span>03</span><div class="step-icon">⎇</div><h3>Model</h3><p>Validate chronologically, handle imbalance, tune probabilities, and compare against a simple baseline.</p><small>XGBoost · Calibration · PR–AUC</small></article>
+          <article class="step reveal"><span>03</span><div class="step-icon">⎇</div><h3>Model</h3><p>Compare class-weighted linear and tree models using event-based forward validation.</p><small>Random forest · PR–AUC · F2</small></article>
           <article class="step reveal"><span>04</span><div class="step-icon">◎</div><h3>Operationalize</h3><p>Serve scores, monitor drift, explain alerts, and connect output to the maintenance planning workflow.</p><small>SHAP · API · Monitoring</small></article>
         </div>
       </div>
