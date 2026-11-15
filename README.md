@@ -49,6 +49,39 @@ Reported holdout metrics include PR-AUC, ROC-AUC, precision, recall, F1, F2, bal
 
 All imputation and scaling steps live inside scikit-learn pipelines and are refitted independently for every temporal fold.
 
+## Model evaluation
+
+The random forest achieved the highest mean PR-AUC across the two forward validation events and was selected for the final holdout evaluation.
+
+| Model | Validation PR-AUC (mean ± SD) | Validation ROC-AUC (mean ± SD) |
+| --- | ---: | ---: |
+| Random forest | **0.388 ± 0.296** | 0.510 ± 0.222 |
+| Histogram gradient boosting | 0.299 ± 0.179 | **0.558 ± 0.077** |
+| Logistic regression | 0.209 ± 0.105 | 0.474 ± 0.094 |
+
+![Forward-validation PR-AUC by model and July holdout prediction counts](docs/images/model_holdout.png)
+
+*Forward-validation performance varies substantially between the two development events. On the July holdout, the recall-oriented threshold detects most positive windows but also generates many false alerts.*
+
+The alert threshold was selected exclusively from pooled validation predictions by maximizing F2, which weights recall more heavily than precision. The resulting threshold was `0.02` (validation F2: `0.403`). Applied once to the untouched July holdout, it produced:
+
+| Holdout metric | Result |
+| --- | ---: |
+| PR-AUC | 0.012 |
+| ROC-AUC | 0.439 |
+| Precision | 1.67% |
+| Recall | 81.55% |
+| F1 / F2 | 0.033 / 0.077 |
+| Balanced accuracy | 0.533 |
+| Brier score | 0.021 |
+| Confusion matrix (TN / FP / FN / TP) | 1,643 / 4,943 / 19 / 84 |
+
+![Confusion matrix for the untouched chronological holdout](artifacts/confusion_matrix.png)
+
+*The chronological holdout confusion matrix makes the operating trade-off explicit: high recall comes at the cost of a large false-positive workload.*
+
+The model detected the held-out failure, with its first positive window appearing approximately 166.8 hours before the documented incident. However, the very low precision and 4,943 false-positive windows mean the current output is not suitable for automatic maintenance decisions. Consecutive positive windows should first be consolidated into alert episodes, and the approach needs validation on substantially more independent failures. These results are best read as a transparent case study in rare-event evaluation, not as evidence of production readiness.
+
 ## Setup
 
 The repository includes a project-local virtual environment at `.venv` (excluded from Git).
